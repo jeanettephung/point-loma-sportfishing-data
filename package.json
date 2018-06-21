@@ -1,0 +1,11 @@
+{
+  "name": "point-loma-sportfishing-data",
+  "description": "Displays data on best days to fish for targeted fish based on data processed by machine learning",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}

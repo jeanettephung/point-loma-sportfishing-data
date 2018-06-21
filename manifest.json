@@ -1,0 +1,7 @@
+{
+  "name": "point-loma-sportfishing-data",
+  "short_name": "point-loma-sportfishing-data",
+  "description": "Displays data on best days to fish for targeted fish based on data processed by machine learning",
+  "start_url": "/",
+  "display": "standalone"
+}
