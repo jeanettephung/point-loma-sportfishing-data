@@ -32,15 +32,19 @@ class PointLomaSportfishingDataApp extends PolymerElement {
           .container { width:100%; }
         }
 
-        @media (max-width: 768px) {
-          h1 { justify-self:start; }
+        @media (max-width: 768px) and (min-width: 476px) {
+          h1 { font-size:2rem; justify-self:start; }
+        }
+
+        @media (max-width: 476px) {
+          h1 { font-size:1.5rem; }
         }
       </style>
 
       <div class="bg--sky">
         <div class="container  container--grid">
           <img class="img--boat" src="/assets/img/boat.png" alt="boat">
-          <h1>Point Loma Sportfishing Data</h1>
+          <h1>Point Loma <br/> Sportfishing Data</h1>
         </div>
       </div>
       <div class="bg--ocean">
