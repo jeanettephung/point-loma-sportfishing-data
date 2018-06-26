@@ -1,7 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 /**
- * @customElement
+ * @customElement Data displayed in calendar
  * @polymer
  */
 class CalendarAnalysis extends PolymerElement {
@@ -12,15 +12,16 @@ class CalendarAnalysis extends PolymerElement {
           display: block;
         }
       </style>
-      <h2>Hello [[prop1]]!</h2>
+      <div class="calendar__month"></div>
+      <div class="calendar__body">
+        <div class="calendar__header"></div>
+        <div class="calendar__days"></div>
+      </div>
     `;
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'point-loma-sportfishing-data-app'
-      }
+
     };
   }
 }
