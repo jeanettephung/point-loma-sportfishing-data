@@ -8,9 +8,7 @@ class CalendarAnalysis extends PolymerElement {
   static get template() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
+        :host { display: block; }
       </style>
       <div class="calendar__month"></div>
       <div class="calendar__body">
