@@ -17,7 +17,7 @@ class JpCarousel extends PolymerElement {
         .carousel__container { display:grid; height:6rem; overflow:hidden; }
         .carousel__container--items { display:flex; justify-content:flex-start; justify-items:center; }
         .carousel__container--main { align-items:center; background-color:#5d9cc3; border-radius:1.5rem; grid-template-columns:7rem auto 7rem;  padding:0.5rem; }
-        ::slotted(img) { height:6rem; margin:0 2rem; position:relative; opacity:0.75; right:var(--carousel-right); transition:right ease-in-out 0.5s; width:auto; will-change:right; }
+        ::slotted(img) { height:auto; margin:0 2rem; position:relative; opacity:0.75; right:var(--carousel-right); transition:all ease-in-out 0.5s; width:6rem; }
       </style>
 
       <div class="carousel__container  carousel__container--main">
@@ -49,14 +49,6 @@ class JpCarousel extends PolymerElement {
     this._initResize();
   }
 
-  /**
-   * @description Calculates value for grid gap for each media query to fit
-   *    1 (476px), 3 (768px), or 6 (1200px) items in the carousel
-   * @private
-   * TODO
-   */
-  _calcGridGapVar() {}
-
   //  /**
   //  * @description Calculates the shift amount for carousel items
   //  * @private
@@ -85,7 +77,6 @@ class JpCarousel extends PolymerElement {
    */
   _initResize() {
     // this._calcMoveVar();
-    this._calcGridGapVar();
   }
 
   /**
@@ -95,8 +86,31 @@ class JpCarousel extends PolymerElement {
    * @private
    */
   _navigateCarousel(direction) {
-    this.curPosition = direction==='left' ? this.curPosition-this.shiftAmount : this.curPosition+this.shiftAmount;
-    this.style.setProperty('--carousel-right', this.curPosition + 'rem');
+    var shift = (this.curPosition);
+    
+    var curPosition = direction==='left' ? this.curPosition+this.shiftAmount : this.curPosition-this.shiftAmount;
+    this.style.setProperty('--carousel-right', (this.curPosition) + 'rem');
+
+    setTimeout(function() {
+      const $app = document.querySelector('point-loma-sportfishing-data-app');
+      const $carousel = $app.shadowRoot.querySelector('jp-carousel');
+      if (direction === 'left') {
+        const removeItem =  $carousel.removeChild( $carousel.children[0]);
+        $carousel.append(removeItem);
+        shift = '-10rem';
+      } else {
+        const removeItem =  $carousel.removeChild( $carousel.children[ $carousel.children.length-1]);
+        $carousel.prepend(removeItem);
+        shift = '10rem'
+      }
+      $carousel.style.setProperty('--carousel-right', -(curPosition) + 'rem');
+    }, 500);
+    // setTimeout(function() {
+    //   console.log(shift);
+    //   const $app = document.querySelector('point-loma-sportfishing-data-app');
+    //   const $carousel = $app.shadowRoot.querySelector('jp-carousel');
+      // this.style.setProperty('--carousel-right', shift + '10rem');
+    // }, 100)
   }
 
 
